@@ -42,13 +42,14 @@ public class CryptoMarche {
      * @return capital total en circulation de la cryptomonnaie (en euros).
      */
     public double capitalMonneaie(Cryptomonnaie monnaie){
-        /**
-			FONCTION Ã€ IMPLEMENTER
-        **/
-
-        return 0;
-
+    double total = 0;
+    for (Portefeuille p : this.portefeuilles) {
+        if (p.getMonnaie().getNom().equals(monnaie.getNom())) {
+            total += p.valeurEnEuros();
+        }
     }
+    return total;
+}
 
     @Override
     public String toString() {
